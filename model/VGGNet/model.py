@@ -61,7 +61,6 @@ class FcLayer(BaseModel):
                                 nn.Linear(in_features=4096, out_features=4096),
                                 nn.ReLU(inplace=True),
                                 nn.Linear(in_features=4096, out_features=num_classes),
-                                nn.Softmax(dim=1)
                                 )
 
     def forward(self, x):

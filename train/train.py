@@ -30,7 +30,7 @@ def train(model, epochs, batch_size, num_classes, lr):
     elif model == "vgg19":
         model = VGG19(in_channels=3, num_classes=num_classes)
 
-    optimizer = optim.Adam(model.parameters(), lr=lr)
+    optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=0.0005)
     loss_fn = vgg_loss
     metric_fn = vgg_accuracy
 
@@ -43,7 +43,5 @@ def train(model, epochs, batch_size, num_classes, lr):
     print(f"Valid Loss: {valid_loss} | Valid Accuracy: {valid_acc}")
 
 
-if __name__ == "main":
-    train(model="vgg16", epochs=10, batch_size=64, num_classes=10, lr=0.1)
-
-train(model="vgg16", epochs=5, batch_size=64, num_classes=10, lr=0.1)
+if __name__ == "__main__":
+    train(model="vgg16", epochs=10, batch_size=64, num_classes=10, lr=0.01)
